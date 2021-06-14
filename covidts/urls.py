@@ -22,7 +22,7 @@ from .views import Index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name='index'),
-    path('', include('users.urls')),
-    path('', include('pacients.urls')),
-    path('', include('ubications.urls')),
+    #path('', include('users.urls')),
+    #path('', include('pacients.urls')),
+    #path('', include('ubications.urls')),
 ]

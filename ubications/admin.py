@@ -1,3 +1,7 @@
+# src/users/admin.py
+# Django imports
 from django.contrib import admin
+# Local imports
+from .models import Ubication
 
-# Register your models here.
+admin.site.register(Ubication)
