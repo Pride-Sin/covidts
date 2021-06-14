@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import gettext_lazy as _
 # Local imports
-from ubications import Ubication
+from ubications.models import Ubication
 
 
 # Custom manager for new user class
