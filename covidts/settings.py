@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Local Apps
     'django_tables2',
     'django_filters',
+    'bootstrap4',
     'users.apps.UsersConfig',
     'patients.apps.PatientsConfig',
     'ubications.apps.UbicationsConfig',

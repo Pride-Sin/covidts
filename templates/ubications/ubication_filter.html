@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load render_table from django_tables2 %}
+{% load bootstrap4 %}
 {% block content %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,6 +40,15 @@
             <div><button type="button" class="add-button btn btn-danger">Search ubication</button></div>  
             <div><button type="button" class="add-button btn btn-danger">Delete ubication</button></div>
         </div>
+
+        {% if filter %}
+            <form action="" method="get" class="form form-inline">
+                {% bootstrap_form filter.form layout='inline' field_class="mr-3" %}
+                {% bootstrap_button 'Filter' button_class="btn-secondary" %}
+            </form>
+        {% endif %}
+
+        <br>
 
         {% render_table table %}
 
