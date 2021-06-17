@@ -1,10 +1,11 @@
 # Django imports
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.views.generic.list import ListView
 # Local imports
 from .models import Ubication
 from .forms import UbicationForm
+from django_tables2.views import SingleTableView
+from ubications.tables import UbicationTable
 
 class UbicationCreateView(CreateView):
     model = Ubication
@@ -13,5 +14,8 @@ class UbicationCreateView(CreateView):
     success_url = reverse_lazy('index')
 
 
-class UbicationListView(ListView):
+class UbicationListView(SingleTableView):
     model = Ubication
+    table_class = UbicationTable
+    context_object_name = 'ubications'
+

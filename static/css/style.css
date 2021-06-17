@@ -82,3 +82,12 @@
 	border-radius: 0.2em;
 	background: currentColor;
 }
+
+thead > tr > th > a {
+	color: #fff;
+}
+
+thead > tr > th > a:hover {
+	color: #e15759;
+	text-decoration: none;
+}
