@@ -2,6 +2,6 @@
 # Django imports
 from django.contrib import admin
 # Local imports
-from .models import Pacient
+from .models import Patient
 
-admin.site.register(Pacient)
+admin.site.register(Patient)

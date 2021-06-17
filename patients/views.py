@@ -2,11 +2,11 @@
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 # Local imports
-from .models import Pacient
-from .forms import PacientForm
+from .models import Patient
+from .forms import PatientForm
 
-class PacientCreateView(CreateView):
-    model = Pacient
-    form_class = PacientForm
+class PatientCreateView(CreateView):
+    model = Patient
+    form_class = PatientForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('index')

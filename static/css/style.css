@@ -4,13 +4,13 @@
     justify-content: space-evenly;
 }
 
-.pacient-list {
+.patient-list {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.pacient-list-add {
+.patient-list-add {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'django_filters',
     'users.apps.UsersConfig',
-    'pacients.apps.PacientsConfig',
+    'patients.apps.PatientsConfig',
     'ubications.apps.UbicationsConfig',
 ]
 

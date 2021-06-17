@@ -1,15 +1,13 @@
 # Django imports
 from django import forms
 # Local imports
-from .models import Pacient
-from users.models import User
+from .models import Patient
 
 
-
-class PacientForm(forms.ModelForm):
+class PatientForm(forms.ModelForm):
 
     class Meta:
-        model = Pacient
+        model = Patient
         fields = ['dni', 'first_name', 'last_name', 'birth', 'risk', 'status', 'ubication', 'supervisor']
         widgets = {
             'dni': forms.NumberInput(attrs={'class': 'form-control'}),

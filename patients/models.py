@@ -5,7 +5,7 @@ from ubications.models import Ubication
 from users.models import User
 
 # Create your models here.
-class Pacient(models.Model):
+class Patient(models.Model):
     dni = models.CharField(max_length=20)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=30)
