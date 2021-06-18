@@ -33,67 +33,39 @@
     <div class="index mt-5">
         <div class="login-index">
 
-        <h1 class="mb-4">Add Patient</h1>
+        <h1 class="mb-4"> {% if request.get_full_path == "/ubication/add" %} Add Ubication
+                          {% else %} Edit {{ ubication.city }} {% endif %}
+        </h1>
+
             <form method="POST">
                 {% csrf_token %}
+                {% for field in form %}
 
-                <div class="form-group">
-                    <label for="dni">DNI</label>
-                    <input type="number" name="dni" class="form-control" id="id_dni" maxlength="20" required>
-                </div>
+                {{ field.errors }} <br>
 
-                <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" class="form-control" id="id_first_name" maxlength="20" required>
-                </div>
+                    <div class="form-group">
+                        <label for="{{field.name}}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                        {% endif %}
+                    </div>
 
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" name="last_name" class="form-control" id="id_last_name" maxlength="30" required>
-                </div>
+                {% endfor %}
 
-                <div class="form-group">
-                    <label for="birth">Birth</label>
-                    <input type="date" name="birth" class="form-control" id="id_birth" required>
-                </div>
+                {% if request.get_full_path == "/ubication/add" %}
+                <input type="submit" class="btn btn-danger" value="Add ubication">
+                {% else %}
+                <input type="submit" class="btn btn-danger" value="Edit ubication">
+                {% endif %}
 
-                <div class="form-group">
-                    <label for="risk">Risk patient?</label>
-                    <input type="checkbox" name="risk" class="form-control" id="id_risk">
-                </div>
-
-                <div class="form-group">
-                    <label for="status">Patient status</label>
-                    <select class="form-select" aria-label="Default select example" required name="status" id="id_status">
-                        {% for u in form.status %}
-                        {{u}}
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="ubication">Ubication</label>
-                    <select class="form-select" aria-label="Default select example" required name="ubication" id="id_ubication">
-                        {% for u in form.ubication %}
-                        {{u}}
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="supervisor">Supervisor</label>
-                    <select class="form-select" aria-label="Default select example" required name="supervisor" id="id_supervisor">
-                        {% for u in form.supervisor %}
-                        {{u}}
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-danger">Add patient</button>
+                <a href="{% url 'ubications' %}" class="add-button btn btn-default">See ubications</a>
             </form>
-
+                
         </div>
     </div>
+
+
 
     </div>
 

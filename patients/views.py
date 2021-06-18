@@ -1,6 +1,6 @@
 # Django imports
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 # Local imports
 from .models import Patient
@@ -11,6 +11,13 @@ class PatientCreateView(CreateView):
     form_class = PatientForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('index')
+
+
+class PatientEditView(UpdateView):
+    model = Patient
+    form_class = PatientForm
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('patients')
 
 
 class PatientListView(ListView):
