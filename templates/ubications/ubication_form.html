@@ -33,7 +33,9 @@
     <div class="index mt-5">
         <div class="login-index">
 
-        <h1 class="mb-4">Add Ubication</h1>
+        <h1 class="mb-4"> {% if request.get_full_path == "/ubication/add/" %} Add Ubication
+                          {% else %} Edit Ubication {% endif %}
+        </h1>
 
             <form method="POST">
                 {% csrf_token %}
@@ -51,7 +53,11 @@
 
                 {% endfor %}
 
+                {% if request.get_full_path == "/ubication/add/" %}
                 <input type="submit" class="btn btn-danger" value="Add ubication">
+                {% else %}
+                <input type="submit" class="btn btn-danger" value="Edit ubication">
+                {% endif %}
 
                 <a href="{% url 'ubications' %}" class="add-button btn btn-default">See ubications</a>
             </form>
