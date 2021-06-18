@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+    <a class="navbar-brand" href="home.html"><h2 class="text-danger">CovidTS</h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'patients' %}">Patients</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'ubications' %}">Ubications</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="settings.html">Settings</a>
+        </li>
+    </ul>
+    </div>
+</div>
+</nav>
+
+<div class="patient-list mt-5 mb-5">
+
+    <div class="content">
+
+    <div class="index mt-5">
+        <div class="login-index">
+
+        <h1 class="mb-4">Delete {{ ubication.city }}, {{ ubication.province }}</h1>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <input type="submit" class="btn btn-danger" value="Delete ubication">
+
+                <a href="{% url 'ubications' %}" class="add-button btn btn-default">See ubications</a>
+            </form>
+                
+        </div>
+    </div>
+
+
+
+    </div>
+
+</div>
+
+{% endblock content %}
