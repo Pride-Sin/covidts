@@ -33,8 +33,8 @@
     <div class="index mt-5">
         <div class="login-index">
 
-        <h1 class="mb-4"> {% if request.get_full_path == "/ubication/add" %} Add Ubication
-                          {% else %} Edit {{ ubication.city }} {% endif %}
+        <h1 class="mb-4"> {% if request.get_full_path == "/patient/add" %} Add Patient
+                          {% else %} Edit Patient {% endif %}
         </h1>
 
             <form method="POST">
@@ -53,13 +53,13 @@
 
                 {% endfor %}
 
-                {% if request.get_full_path == "/ubication/add" %}
-                <input type="submit" class="btn btn-danger" value="Add ubication">
+                {% if request.get_full_path == "/patient/add" %}
+                <input type="submit" class="btn btn-danger" value="Add Patient">
                 {% else %}
-                <input type="submit" class="btn btn-danger" value="Edit ubication">
+                <input type="submit" class="btn btn-danger" value="Edit Patient">
                 {% endif %}
 
-                <a href="{% url 'ubications' %}" class="add-button btn btn-default">See ubications</a>
+                <a href="{% url 'patients' %}" class="add-button btn btn-default">See patients</a>
             </form>
                 
         </div>

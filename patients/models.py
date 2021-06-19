@@ -21,6 +21,5 @@ class Patient(models.Model):
     ubication = models.ForeignKey(Ubication, on_delete=models.CASCADE)
     supervisor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
-
     def __str__(self):
         return self.dni
