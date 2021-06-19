@@ -38,7 +38,7 @@ class PatientListView(SingleTableMixin, FilterView):
         context['infected'] = Patient.objects.filter(status='infected').count
         context['recovered'] = Patient.objects.filter(status='recuperated').count
         context['vaccinated'] = Patient.objects.filter(status='vaccinated').count
-        context['risk'] = Patient.objects.filter(status=True).count
+        context['risk'] = Patient.objects.filter(risk=True).count
         context['uci'] = Patient.objects.filter(status='uci').count
 
         return context
