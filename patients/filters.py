@@ -1,5 +1,6 @@
+# django-filters imports
+import django_filters 
 # Local imports
-import django_filters
 from .models import Patient
 
 class PatientFilter(django_filters.FilterSet):
