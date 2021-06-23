@@ -69,15 +69,28 @@
 
 <div class="index mt-5 mb-5">
 
-    <figure class="pie-chart">
+    <figure class="pie-chart" style="background:
+                                        radial-gradient(
+                                            circle closest-side,
+                                            transparent 66%,
+                                            white 0
+                                        ),
+                                        conic-gradient(
+                                            #4e79a7 0,
+                                            #4e79a7 {{ vaccinated_porcentage }}%,
+                                            #f28e2c 0,
+                                            #f28e2c {{ infected_porcentage }}%,
+                                            #e15759 0,
+                                            #e15759 {{ uci_porcentage }}%,
+                                            #76b7b2 0,
+                                            #76b7b2 100%
+                                    );">
         <h2>Patients % by status</h2>
         <figcaption>
-            Coal 38<span style="color:#4e79a7"></span><br>
-            Natural Gas 23<span style="color:#f28e2c"></span><br>
-            Hydro 16<span style="color:#e15759"></span><br>
-            Nuclear 10<span style="color:#76b7b2"></span><br>
-            Renewable 6<span style="color:#59a14f"></span><br>
-            Other 7<span style="color:#edc949"></span>
+            Vaccinated {{ vaccinated }}<span style="color:#4e79a7"></span><br>
+            Infected {{ infected }}<span style="color:#f28e2c"></span><br>
+            UCI {{ uci }}<span style="color:#e15759"></span><br>
+            Recuperated {{ recovered }}<span style="color:#76b7b2"></span><br>
         </figcaption>
     </figure>
 
@@ -88,8 +101,6 @@
             Natural Gas 23<span style="color:#f28e2c"></span><br>
             Hydro 16<span style="color:#e15759"></span><br>
             Nuclear 10<span style="color:#76b7b2"></span><br>
-            Renewable 6<span style="color:#59a14f"></span><br>
-            Other 7<span style="color:#edc949"></span>
         </figcaption>
     </figure>
 
