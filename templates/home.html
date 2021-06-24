@@ -69,38 +69,33 @@
 
 <div class="index mt-5 mb-5">
 
-    <figure class="pie-chart" style="background:
-                                        radial-gradient(
-                                            circle closest-side,
-                                            transparent 66%,
-                                            white 0
-                                        ),
-                                        conic-gradient(
-                                            #4e79a7 0,
-                                            #4e79a7 {{ vaccinated_porcentage }}%,
-                                            #f28e2c 0,
-                                            #f28e2c {{ infected_porcentage }}%,
-                                            #e15759 0,
-                                            #e15759 {{ uci_porcentage }}%,
-                                            #76b7b2 0,
-                                            #76b7b2 100%
-                                    );">
-        <h2>Patients % by status</h2>
+    <figure class="pie-chart" 
+    style="background: radial-gradient(circle closest-side,transparent 66%,#F8F9FA 0),
+                       conic-gradient(#90be6d 0, #90be6d {{vaccinated_porcentage}}%, 
+                                      #f8961e 0, #f8961e {{infected_porcentage}}%, 
+                                      #f94144 0, #f94144 {{uci_porcentage}}%, 
+                                      #577590 0, #577590 100%">
+        <h2>Patients by status</h2>
         <figcaption>
-            Vaccinated {{ vaccinated }}<span style="color:#4e79a7"></span><br>
-            Infected {{ infected }}<span style="color:#f28e2c"></span><br>
-            UCI {{ uci }}<span style="color:#e15759"></span><br>
-            Recuperated {{ recovered }}<span style="color:#76b7b2"></span><br>
+            Vaccinated {{ vaccinated }}<span style="color:#90be6d"></span><br>
+            Infected {{ infected }}<span style="color:#f8961e"></span><br>
+            UCI {{ uci }}<span style="color:#f94144"></span><br>
+            Recuperated {{ recovered }}<span style="color:#577590"></span><br>
         </figcaption>
     </figure>
 
-    <figure class="pie-chart">
-        <h2>Infected % by ubication</h2>
+    <figure class="pie-chart" 
+    style="background: radial-gradient(circle closest-side,transparent 66%,#F8F9FA 0),
+                       conic-gradient(#048ba8 0, #048ba8 {{infected_one_porcentage}}%, 
+                                      #16db93 0, #16db93 {{infected_two_porcentage}}%, 
+                                      #efea5a 0, #efea5a {{infected_three_porcentage}}%, 
+                                      #f29e4c 0, #f29e4c 100%">
+        <h2>Infected by ubication</h2>
         <figcaption>
-            Coal 38<span style="color:#4e79a7"></span><br>
-            Natural Gas 23<span style="color:#f28e2c"></span><br>
-            Hydro 16<span style="color:#e15759"></span><br>
-            Nuclear 10<span style="color:#76b7b2"></span><br>
+            {{ infected_by_ubication.0.city }} {{ infected_by_ubication.1 }}<span style="color:#048ba8"></span><br>
+            {{ infected_by_ubication.2.city }} {{ infected_by_ubication.3 }}<span style="color:#16db93"></span><br>
+            {{ infected_by_ubication.4.city }} {{ infected_by_ubication.5 }}<span style="color:#efea5a"></span><br>
+            Otros {{ other_infected }}<span style="color:#f29e4c"></span><br>
         </figcaption>
     </figure>
 

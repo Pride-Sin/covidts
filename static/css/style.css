@@ -29,22 +29,6 @@
 /* PIE CHART */
 
 .pie-chart {
-	background:
-	radial-gradient(
-		circle closest-side,
-		transparent 66%,
-		white 0
-	),
-	conic-gradient(
-		#4e79a7 0,
-		#4e79a7 43.7%,
-		#f28e2c 0,
-		#f28e2c 70.1%,
-		#e15759 0,
-		#e15759 88.5%,
-		#76b7b2 0,
-		#76b7b2 100%
-);
 	position: relative;
 	width: 500px;
 	min-height: 350px;
