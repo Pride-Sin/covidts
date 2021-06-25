@@ -12,10 +12,10 @@ class Patient(models.Model):
     birth = models.DateField(max_length=8)
     risk = models.BooleanField(default=False)
     STATUS_CHOICES = (
-    ('vaccinated','Vaccinated'),
-    ('infected', 'Infected'),
-    ('uci','UCI'),
-    ('recuperated','Recuperated'),
+        ('vaccinated','Vaccinated'),
+        ('infected', 'Infected'),
+        ('uci','UCI'),
+        ('recuperated','Recuperated'),
     )
     status = models.CharField(max_length=15, choices=STATUS_CHOICES)
     ubication = models.ForeignKey(Ubication, on_delete=models.CASCADE)
