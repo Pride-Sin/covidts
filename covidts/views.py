@@ -86,4 +86,54 @@ class Index(ListView):
         context['infected_three_porcentage'] = infected_three_porcentage
         #?-----------------------------------------------------------?#
 
+        #?---------------------- Ubication table ----------------------?#
+        #? Ubication not infected amounts
+        not_infected_1 = (infected_by_ubication[0].poblation) - (infected_by_ubication[1])
+        not_infected_2 = (infected_by_ubication[2].poblation) - (infected_by_ubication[3])
+        not_infected_3 = (infected_by_ubication[4].poblation) - (infected_by_ubication[5])
+
+        #? Ubication infected porcentages
+        # Calculate the porcentage for each amount using the helper function chart_porcentage 
+        # (wich saves it in a list)
+
+        porcentages_1 = chart_porcentage(infected_by_ubication[1], not_infected_1, decimals=2)
+        infected_u_1 = porcentages_1[0]
+        porcentages_2 = chart_porcentage(infected_by_ubication[3], not_infected_2, decimals=2)
+        infected_u_2 = porcentages_2[0]
+        porcentages_3 = chart_porcentage(infected_by_ubication[5], not_infected_3, decimals=2)
+        infected_u_3 = porcentages_3[0]
+
+        #? Vaccinated amount
+        vaccinated_1 = (Patient.objects.filter(status='vaccinated', ubication=infected_by_ubication[0]).count())
+        vaccinated_2 = (Patient.objects.filter(status='vaccinated', ubication=infected_by_ubication[2]).count())
+        vaccinated_3 = (Patient.objects.filter(status='vaccinated', ubication=infected_by_ubication[4]).count())
+
+        #? Not vaccinated amount
+        not_vaccinated_1 = (infected_by_ubication[0].poblation) - (Patient.objects.filter(status='vaccinated', ubication=infected_by_ubication[0]).count())
+        not_vaccinated_2 = (infected_by_ubication[2].poblation) - (Patient.objects.filter(status='vaccinated', ubication=infected_by_ubication[2]).count())
+        not_vaccinated_3 = (infected_by_ubication[4].poblation) - (Patient.objects.filter(status='vaccinated', ubication=infected_by_ubication[4]).count())
+
+        #? Ubication vaccinated porcentages
+        # Calculate the porcentage for each amount using the helper function chart_porcentage 
+        # (wich saves it in a list)
+
+        porcentages_4 = chart_porcentage(vaccinated_1, not_vaccinated_1, decimals=2)
+        print(vaccinated_1)
+        print(not_vaccinated_1)
+        vaccinated_u_1 = porcentages_4[0]
+        porcentages_5 = chart_porcentage(vaccinated_2, not_vaccinated_2, decimals=2)
+        vaccinated_u_2 = porcentages_5[0]
+        porcentages_6 = chart_porcentage(vaccinated_3, not_vaccinated_3, decimals=2)
+        vaccinated_u_3 = porcentages_6[0]
+
+        # Pass the porcentages through context
+        context['infected_u_1'] = infected_u_1
+        context['infected_u_2'] = infected_u_2
+        context['infected_u_3'] = infected_u_3
+        context['vaccinated_u_1'] = vaccinated_u_1
+        context['vaccinated_u_2'] = vaccinated_u_2
+        context['vaccinated_u_3'] = vaccinated_u_3
+        #?-----------------------------------------------------------?#
+
+
         return context
