@@ -144,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Changed default Auth User Model
 AUTH_USER_MODEL = 'users.User'
+
+# Django succes messages
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

@@ -1,8 +1,8 @@
 # Django imports
 from django.urls import path
 # Local imports
-
+from .models import AuthView
 
 urlpatterns = [
-    #path('polls/', PollList.as_view(), name='polls'),
+    path('auth/', AuthView.as_view(), name='auth'),
 ]

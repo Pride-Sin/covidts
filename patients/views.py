@@ -1,6 +1,7 @@
 # Django imports
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib import messages
 # Local imports
 from .models import Patient
 from .forms import PatientForm
@@ -17,6 +18,10 @@ class PatientCreateView(CreateView):
     redirect_authenticated_user = True
     success_url = reverse_lazy('patients')
 
+    def get_success_url(self):
+        messages.success(self.request, 'Patient added')
+        return self.success_url
+
 
 class PatientEditView(UpdateView):
     model = Patient
@@ -24,6 +29,20 @@ class PatientEditView(UpdateView):
     redirect_authenticated_user = True
     success_url = reverse_lazy('patients')
 
+    def get_success_url(self):
+        messages.success(self.request, 'Patient updated')
+        return self.success_url
+
+class PatientDeleteView(DeleteView):
+    model = Patient
+    form_class = PatientForm
+    context_object_name = 'patient'
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('patients')
+
+    def get_success_url(self):
+        messages.success(self.request, 'Patient deleted')
+        return self.success_url
 
 class PatientListView(SingleTableMixin, FilterView):
     model = Patient

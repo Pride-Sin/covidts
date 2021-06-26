@@ -1,6 +1,8 @@
 # Django imports
+from django.contrib.messages.api import success
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib import messages
 # Local imports
 from .models import Ubication
 from .forms import UbicationForm
@@ -18,6 +20,10 @@ class UbicationCreateView(CreateView):
     redirect_authenticated_user = True
     success_url = reverse_lazy('ubications')
 
+    def get_success_url(self):
+        messages.success(self.request, 'Ubication created')
+        return self.success_url
+
 
 class UbicationEditView(UpdateView):
     model = Ubication
@@ -25,6 +31,9 @@ class UbicationEditView(UpdateView):
     redirect_authenticated_user = True
     success_url = reverse_lazy('ubications')
 
+    def get_success_url(self):
+        messages.success(self.request, 'Ubication updated')
+        return self.success_url
 
 class UbicationDeleteView(DeleteView):
     model = Ubication
@@ -32,6 +41,10 @@ class UbicationDeleteView(DeleteView):
     context_object_name = 'ubication'
     redirect_authenticated_user = True
     success_url = reverse_lazy('ubications')
+
+    def get_success_url(self):
+        messages.success(self.request, 'Ubication deleted')
+        return self.success_url
 
 
 class UbicationListView(SingleTableMixin, FilterView):

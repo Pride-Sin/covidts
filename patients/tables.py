@@ -8,7 +8,7 @@ from .models import Patient
 
 class PatientTable(tables.Table):
     T1     = '''<a type="button" href="{% url 'edit-patient' record.pk %}" class="btn btn-danger">Edit</a>'''
-    T2     = '''<a type="button" href="{% url 'edit-patient' record.pk %}" class="btn btn-danger">Delete</a>'''
+    T2     = '''<a type="button" href="{% url 'delete-patient' record.pk %}" class="btn btn-danger">Delete</a>'''
     edit   = tables.TemplateColumn(T1, orderable=False)
     delete = tables.TemplateColumn(T2, orderable=False)
 
