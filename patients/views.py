@@ -2,6 +2,7 @@
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Local imports
 from .models import Patient
 from .forms import PatientForm
@@ -12,7 +13,7 @@ from django_filters.views import FilterView
 from .filters import PatientFilter
 from .tables import PatientTable
 
-class PatientCreateView(CreateView):
+class PatientCreateView(LoginRequiredMixin, CreateView):
     model = Patient
     form_class = PatientForm
     redirect_authenticated_user = True
@@ -23,7 +24,7 @@ class PatientCreateView(CreateView):
         return self.success_url
 
 
-class PatientEditView(UpdateView):
+class PatientEditView(LoginRequiredMixin, UpdateView):
     model = Patient
     form_class = PatientForm
     redirect_authenticated_user = True
@@ -33,7 +34,7 @@ class PatientEditView(UpdateView):
         messages.success(self.request, 'Patient updated')
         return self.success_url
 
-class PatientDeleteView(DeleteView):
+class PatientDeleteView(LoginRequiredMixin, DeleteView):
     model = Patient
     form_class = PatientForm
     context_object_name = 'patient'
@@ -44,7 +45,7 @@ class PatientDeleteView(DeleteView):
         messages.success(self.request, 'Patient deleted')
         return self.success_url
 
-class PatientListView(SingleTableMixin, FilterView):
+class PatientListView(LoginRequiredMixin, SingleTableMixin, FilterView):
     model = Patient
     table_class = PatientTable
     context_object_name = 'patients'

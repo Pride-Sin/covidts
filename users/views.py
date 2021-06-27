@@ -2,8 +2,6 @@
 from django.urls import reverse_lazy
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.views import LoginView
-# Local imports
-from .models import User
 
 class AuthView(LoginView):
     template_name = 'users/auth.html'

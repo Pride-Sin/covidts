@@ -145,8 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Changed default Auth User Model
 AUTH_USER_MODEL = 'users.User'
 
-# Login Redirect override
-#LOGIN_URL = 'login'
+# Login Redirect override (For LoginRequiredMixin)
+LOGIN_URL = 'auth'
 
 # Django succes messages
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

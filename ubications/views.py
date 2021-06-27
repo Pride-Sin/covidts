@@ -3,6 +3,7 @@ from django.contrib.messages.api import success
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Local imports
 from .models import Ubication
 from .forms import UbicationForm
@@ -14,7 +15,7 @@ from django_filters.views import FilterView
 from .filters import UbicationFilter
 
 
-class UbicationCreateView(CreateView):
+class UbicationCreateView(LoginRequiredMixin, CreateView):
     model = Ubication
     form_class = UbicationForm
     redirect_authenticated_user = True
@@ -25,7 +26,7 @@ class UbicationCreateView(CreateView):
         return self.success_url
 
 
-class UbicationEditView(UpdateView):
+class UbicationEditView(LoginRequiredMixin, UpdateView):
     model = Ubication
     form_class = UbicationForm
     redirect_authenticated_user = True
@@ -35,7 +36,7 @@ class UbicationEditView(UpdateView):
         messages.success(self.request, 'Ubication updated')
         return self.success_url
 
-class UbicationDeleteView(DeleteView):
+class UbicationDeleteView(LoginRequiredMixin, DeleteView):
     model = Ubication
     form_class = UbicationForm
     context_object_name = 'ubication'
@@ -47,7 +48,7 @@ class UbicationDeleteView(DeleteView):
         return self.success_url
 
 
-class UbicationListView(SingleTableMixin, FilterView):
+class UbicationListView(LoginRequiredMixin, SingleTableMixin, FilterView):
     model = Ubication
     table_class = UbicationTable
     context_object_name = 'ubications'

@@ -7,5 +7,5 @@ urlpatterns = [
     path('ubication/add', UbicationCreateView.as_view(), name='add-ubication'),
     path('ubication/<int:pk>/delete', UbicationDeleteView.as_view(), name='delete-ubication'),
     path('ubication/<int:pk>/edit', UbicationEditView.as_view(), name='edit-ubication'),
-    path('ubications', UbicationListView.as_view(), name='ubications'),
+    path('ubications/', UbicationListView.as_view(), name='ubications'),
 ]

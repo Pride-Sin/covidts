@@ -1,12 +1,13 @@
 # Django imports
 from django.views.generic import ListView
 from django.db.models import Count
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Local imports
 from patients.models import Patient
 from ubications.models import Ubication
 from .utils import *
 
-class Index(ListView):
+class Index(LoginRequiredMixin, ListView):
     template_name = 'home.html'
     context_object_name = 'index'  
     queryset = Patient.objects.all()  
