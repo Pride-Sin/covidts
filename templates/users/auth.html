@@ -7,18 +7,35 @@
 
 <div class="index mt-5">
     <div class="login-index">
-        <form>
-            <div class="form-group">
-                <label for="loginEmail">Email address</label>
-                <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
-                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+        <div class="forms-group">
+
+
+        <form class="forms-group__form" method="POST">
+            {% csrf_token %}
+
+            <!-- ERRORS DISPLAY -->
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                Please enter a correct email address and password.
             </div>
+            {% endif %}
+
+            <!-- FORM DISPLAY -->
             <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" class="form-control" id="loginPassword">
+                <label for="username">Email address</label>
+                <input class="form-control" type="email" name="username" aria-describedby="emailHelp" autofocus required>
             </div>
-            <button type="submit" class="btn btn-danger">Login</button>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" name="password" required>
+            </div>
+
+            <input type="submit" class="btn btn-danger" value="Login">
+
         </form>
+
     </div>
 </div>
 
