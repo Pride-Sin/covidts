@@ -14,6 +14,7 @@ class PatientTable(tables.Table):
 
     class Meta:
         model = Patient
+        template_name = "django_tables2/bootstrap4.html"
         fields = ("id", "dni", "first_name", "last_name", "risk", "status", "ubication", "supervisor")
         attrs = {
                  'class': 'table',
